@@ -19,7 +19,7 @@ public class UniversePause : MonoBehaviour
         IsPaused = true;
         usesLeft--;
 
-        // Karakterleri dondur
+        // freeze chars
         foreach (var clone in GetComponentsInChildren<PlayerClone>())
         {
             clone.SetFrozen(true);
@@ -27,7 +27,7 @@ public class UniversePause : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        // Geri çöz
+        // unfreeze
         foreach (var clone in GetComponentsInChildren<PlayerClone>())
         {
             clone.SetFrozen(false);
