@@ -13,12 +13,29 @@ public class UniverseClone : MonoBehaviour
         var player = GetComponentInChildren<PlayerClone>();
         if (player == null) return;
 
-        Transform charactersRoot = transform.Find("Characters");
-        if (charactersRoot == null) charactersRoot = transform; // fallback
+        Transform charactersRoot = null;
+
+        var playerContainer = transform.Find("PlayerContainer");
+        if (playerContainer != null)
+        {
+            charactersRoot = playerContainer.Find("Characters");
+        }
+
+        if (charactersRoot == null)
+        {
+            charactersRoot = transform.Find("Characters");
+        }
+
+        if (charactersRoot == null)
+        {
+            Debug.LogWarning("Characters objesi bulunamadý, Universe'e atýlýyor.");
+            charactersRoot = transform;
+        }
 
         Instantiate(clonePrefab, player.transform.position, Quaternion.identity, charactersRoot);
 
         hasSpawned = true;
         usesLeft--;
     }
+
 }
