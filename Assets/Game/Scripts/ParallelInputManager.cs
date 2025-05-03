@@ -5,9 +5,19 @@ public class ParallelInputManager : MonoBehaviour
 {
     private List<PlayerClone> clones = new List<PlayerClone>();
 
+    public bool disableClonesOnStart = false;
+
     void Start()
     {
         clones.AddRange(Object.FindObjectsByType<PlayerClone>(FindObjectsSortMode.None));
+
+        if (disableClonesOnStart)
+        {
+            foreach (var clone in clones)
+            {
+                clone.enabled = false;
+            }
+        }
     }
 
     void Update()
@@ -19,6 +29,14 @@ public class ParallelInputManager : MonoBehaviour
         foreach (var clone in clones)
         {
             clone.ReceiveInput(move, jump, crouch);
+        }
+    }
+
+    public void EnableClones()
+    {
+        foreach (var clone in clones)
+        {
+            clone.enabled = true;
         }
     }
 }
