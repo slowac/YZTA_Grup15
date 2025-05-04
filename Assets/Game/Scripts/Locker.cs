@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Locker : MonoBehaviour
 {
-    public GameObject objectToLock;
+    public GameObject targetObject;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && !targetObject.activeSelf)
+        {
+            targetObject.SetActive(false);
+            Debug.Log("Ýçerdeyken açýk.");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            objectToLock.SetActive(false);
-            Debug.Log("Kapý kilitlendi!");
-            Destroy(gameObject);
+            targetObject.SetActive(true);
+            Debug.Log("Çýkýnca kapandý.");
         }
     }
 }

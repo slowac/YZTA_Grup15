@@ -10,14 +10,12 @@ public class PlayerClone : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
-    [Header("Crouch Settings")]
-    public Vector3 standScale = new Vector3(1, 1, 1);
-    public Vector3 crouchScale = new Vector3(1, 0.5f, 1);
-
     [Header("Universe Settings")]
     public Universe myUniverse;
 
     private Rigidbody rb;
+    private Animator animator;
+
     private bool isGrounded;
     private bool isCrouching;
 
@@ -38,7 +36,7 @@ public class PlayerClone : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        transform.localScale = standScale;
+        animator = GetComponent<Animator>();
 
         if (myUniverse == null)
         {
@@ -57,6 +55,7 @@ public class PlayerClone : MonoBehaviour
             return;
         }
 
+        UpdateAnimator();
         HandleMovement();
         HandleJump();
         HandleCrouch();
@@ -71,6 +70,17 @@ public class PlayerClone : MonoBehaviour
         {
             rb.AddForce(gravityDirection * 20f); // Özel yerçekimini uygula
         }
+    }
+
+    void UpdateAnimator()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
+
+        animator.SetFloat("moveSpeed", Mathf.Abs(horizontal));
+        animator.SetBool("isGrounded", isGrounded);
+        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isCrouching", isCrouching);
     }
 
     public int GetUniverseID()
@@ -91,6 +101,11 @@ public class PlayerClone : MonoBehaviour
 
         Vector3 velocity = new Vector3(horizontal * moveSpeed, rb.linearVelocity.y, 0f);
         rb.linearVelocity = velocity;
+
+        if (horizontal > 0)
+            targetRotation = Quaternion.Euler(0, 90, 0);
+        else if (horizontal < 0)
+            targetRotation = Quaternion.Euler(0, 270, 0);
     }
 
     void HandleJump()
@@ -107,19 +122,7 @@ public class PlayerClone : MonoBehaviour
 
     void HandleCrouch()
     {
-        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-        {
-            if (!isCrouching)
-            {
-                transform.localScale = crouchScale;
-                isCrouching = true;
-            }
-        }
-        else if (isCrouching)
-        {
-            transform.localScale = standScale;
-            isCrouching = false;
-        }
+        isCrouching = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
     }
 
     public void ReceiveInput(float move, bool jump, bool crouch)
