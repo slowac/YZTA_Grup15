@@ -6,7 +6,7 @@ public class Unlocker : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && !targetObject.activeSelf)
+        if (other.CompareTag("Player"))
         {
             targetObject.SetActive(true);
             Debug.Log("Ýçerdeyken açýk.");
