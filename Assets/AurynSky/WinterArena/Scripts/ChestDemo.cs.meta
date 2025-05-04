@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1bc90ee2f9e333a488b1d18ee8a965fd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 150432
+  packageName: Winter Forest - Low Poly Toon Battle Arena / Tower Defense Pack
+  packageVersion: 1.1
+  assetPath: Assets/AurynSky/WinterArena/Scripts/ChestDemo.cs
+  uploadId: 326334

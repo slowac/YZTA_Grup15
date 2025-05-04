@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7bb9fe619f5a9d8488c633184689a7a1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 150432
+  packageName: Winter Forest - Low Poly Toon Battle Arena / Tower Defense Pack
+  packageVersion: 1.1
+  assetPath: Assets/AurynSky/WinterArena/Scripts/Rotator.cs
+  uploadId: 326334

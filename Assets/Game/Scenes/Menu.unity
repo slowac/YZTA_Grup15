@@ -11542,7 +11542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aad72003bd159f48913f4c27f67ac17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Summons a clone of the character in the universe where it is used.
+  message: Summons a clone of the character in the universe for 5 seconds where it
+    is used.
 --- !u!1 &2143928188
 GameObject:
   m_ObjectHideFlags: 0

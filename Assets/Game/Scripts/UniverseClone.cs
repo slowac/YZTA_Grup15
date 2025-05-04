@@ -32,7 +32,8 @@ public class UniverseClone : MonoBehaviour
             charactersRoot = transform;
         }
 
-        Instantiate(clonePrefab, player.transform.position, Quaternion.identity, charactersRoot);
+        GameObject clone = Instantiate(clonePrefab, player.transform.position, Quaternion.identity, charactersRoot);
+        Destroy(clone, 5f);
 
         hasSpawned = true;
         usesLeft--;
