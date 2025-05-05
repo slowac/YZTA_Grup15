@@ -1,16 +1,21 @@
 # THE VARIANTS
 
+
 Yapay Zeka Ve Teknoloji Akademesi' nin Game Jam-Paralel Evren Konulu projesi için Grup 15 tarafından yapılmıştır.👩🏻‍💻👨🏻‍💻👨🏻‍🎨👩🏻‍🎨
 
+
 ### Proje Adı: THE VARIANTS ☢ 🎮
+
 ### Tür: Bulmaca / Platform / Bilim Kurgu 🧩 🏗 💊
 
 
 🎮 Bu oyun projesi, paralel evrenlerdeki kendi farklı versiyonlarını kontrol edebileceğin, hem eğlenceli hem de düşündürücü bir oyun deneyimi sunmak amacıyla başlatılmıştır.Unity oyun motorunun etkin kullanımıyla, temel oyun geliştirme becerilerinin öğrenilmesi hedeflenmiştir. 
 
+
 ## Proje Oyun Senaryosu✍🏻
 
 Ana karakter paralel boyutlarla oynayarak gerçekliği parçalamıştır. Oyun, 4 Seviye(Orman Bölgesi, Buz Evreni, Uzay Boşluğu Alanı, Minecraft EvreniAlternatif) içerisinde geçmektedir. Versiyonlar birbirinden bağımsız zaman çizgilerinde hapsolmuştur. Zamanı manipüle etme gücünü kullanarak hepsini senkronize etmeli ve onları kurtarmalısın.
+
 
 ## Kullanılan Araçlar 🛠
 
@@ -30,6 +35,7 @@ Ana karakter paralel boyutlarla oynayarak gerçekliği parçalamıştır. Oyun, 
 ---Animasyon ve Ses Kontrolleri(Animasyonları başlatma/durdurma) 🔈🔉🔊
 ---Veri Kaydetme/Yükleme(Oyuncu ilerlemesini kaydetme) 🎥
 ---Oyun içinde tekrar kullanılabilir bileşenler oluşturma 🎲
+
 
 
 ## Resimler 🖼🔮
@@ -53,8 +59,13 @@ Aşağıda proje ile ilgili görseller bulunmaktadır.
 
 
 ## Display 🎬
-[![Video Başlığı](![Image](https://github.com/user-attachments/assets/38ac62b3-b582-41df-a5c2-35883270dce8))](https://www.youtube.com/watch?v=bTyxJoArfe4)
 
+
+[![Videoyu YouTube'da İzle](https://www.youtube.com/watch?v=VIDEO_ID)](https://www.youtube.com/watch?v=bTyxJoArfe4)
+
+<br>
+
+![Image](https://github.com/user-attachments/assets/cd3ae931-b30a-472e-a944-4b7a050c4a3f)
 
 
 
