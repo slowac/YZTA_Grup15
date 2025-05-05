@@ -19,5 +19,7 @@ public class UniverseGravity : MonoBehaviour
         {
             clone.SetGravityDirection(gravityFlipped ? Vector3.up : Vector3.down);
         }
+
+        SoundManager.Instance.PlayGravitySFX();
     }
 }

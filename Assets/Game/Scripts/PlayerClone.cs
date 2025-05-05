@@ -32,6 +32,13 @@ public class PlayerClone : MonoBehaviour
 
     private bool justTeleported = false;
 
+    private float walkSFXCooldown = 0.5f;
+    private float walkSFXTimer = 0f;
+
+
+    private bool previousCrouchState = false;
+
+
 
     void Start()
     {
@@ -54,6 +61,8 @@ public class PlayerClone : MonoBehaviour
         {
             return;
         }
+
+        walkSFXTimer -= Time.deltaTime;
 
         UpdateAnimator();
         HandleMovement();
@@ -99,6 +108,12 @@ public class PlayerClone : MonoBehaviour
             horizontal *= -1;
         }
 
+        if (horizontal != 0 && isGrounded && walkSFXTimer <= 0f)
+        {
+            SoundManager.Instance.PlayWalkSFX();
+            walkSFXTimer = walkSFXCooldown;
+        }
+
         Vector3 velocity = new Vector3(horizontal * moveSpeed, rb.linearVelocity.y, 0f);
         rb.linearVelocity = velocity;
 
@@ -114,15 +129,22 @@ public class PlayerClone : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isCrouching)
         {
-            //rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, 0f); //sabit yone ziplama
             rb.linearVelocity = new Vector3(rb.linearVelocity.x, -jumpForce * gravityDirection.y, 0f);
-
+            SoundManager.Instance.PlayJumpSFX();
         }
     }
 
     void HandleCrouch()
     {
+        bool wasCrouching = isCrouching;
         isCrouching = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+
+        if (isCrouching && !wasCrouching)
+        {
+            SoundManager.Instance.PlayCrouchSFX();
+        }
+
+        previousCrouchState = isCrouching;
     }
 
     public void ReceiveInput(float move, bool jump, bool crouch)

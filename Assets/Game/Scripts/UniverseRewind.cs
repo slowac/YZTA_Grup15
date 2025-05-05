@@ -30,6 +30,8 @@ public class UniverseRewind : MonoBehaviour
             isRewinding = true;
             rewindTimer = 0f;
 
+            SoundManager.Instance.PlayRewindSFX();
+
             foreach (var rewind in GetComponentsInChildren<RewindRecorder>())
             {
                 rewind.StartRewind();
@@ -42,6 +44,8 @@ public class UniverseRewind : MonoBehaviour
         if (!isRewinding) return;
 
         isRewinding = false;
+
+        SoundManager.Instance.StopRewindSFX();
 
         foreach (var rewind in GetComponentsInChildren<RewindRecorder>())
         {

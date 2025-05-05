@@ -31,6 +31,9 @@ public class ExitTrigger : MonoBehaviour
         if (player1Ready && player2Ready)
         {
             Debug.Log("Ýki oyuncu da çýkýþta. Sonraki levele geçiliyor...");
+
+            SoundManager.Instance.PlayPortalSFX();
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

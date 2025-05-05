@@ -9,5 +9,7 @@ public class UniverseReverse : MonoBehaviour
     public void ToggleReverse()
     {
         isReversed = !isReversed;
+
+        SoundManager.Instance.PlayReverseSFX();
     }
 }

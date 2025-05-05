@@ -10,6 +10,7 @@ public class KillZone : MonoBehaviour
             Universe universe = clone.myUniverse;
             if (universe != null && universe.spawnPoint != null)
             {
+                SoundManager.Instance.PlayRespawnSFX();
                 clone.TeleportTo(universe.spawnPoint.position);
             }
         }

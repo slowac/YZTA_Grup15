@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
     public GameObject playerContainer;
     public PlayerClone player;
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayMainMenuMusic();
+    }
+
     public void StartGame()
     {
         player.enabled = true;
@@ -24,5 +29,10 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Oyun kapatýlýyor...");
         Application.Quit();
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(0);
     }
 }

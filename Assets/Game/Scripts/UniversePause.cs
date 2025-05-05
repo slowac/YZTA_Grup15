@@ -19,6 +19,8 @@ public class UniversePause : MonoBehaviour
         IsPaused = true;
         usesLeft--;
 
+        SoundManager.Instance.PlayTimeStopSFX();
+
         // freeze chars
         foreach (var clone in GetComponentsInChildren<PlayerClone>())
         {

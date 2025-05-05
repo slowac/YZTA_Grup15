@@ -35,6 +35,8 @@ public class UniverseClone : MonoBehaviour
         GameObject clone = Instantiate(clonePrefab, player.transform.position, Quaternion.identity, charactersRoot);
         Destroy(clone, 7f);
 
+        SoundManager.Instance.PlayCloneSFX();
+
         hasSpawned = true;
         usesLeft--;
     }
